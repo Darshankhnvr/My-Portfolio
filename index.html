@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Darshan Kesha Gouda - Full Stack Developer specializing in Node.js, React, Docker, and Azure. Building scalable web applications and distributed systems."
+    />
+    <title>Darshan Kesha Gouda | Full Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Animated Background -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#home" class="nav-logo">DKG</a>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-label="Toggle navigation menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="hero-text">
+          <p class="hero-greeting">Hello, I'm</p>
+          <h1 class="hero-name">Darshan Kesha Gouda</h1>
+          <div class="hero-title">
+            <span class="typing-text"></span>
+            <span class="cursor">|</span>
+          </div>
+          <p class="hero-description">
+            Full Stack Developer specializing in building scalable web
+            applications with Node.js, React, Docker, and Azure
+          </p>
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#contact" class="btn btn-secondary">Contact Me</a>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <span>Scroll Down</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p class="about-intro">
+              I'm a passionate Full Stack Developer with a strong focus on
+              backend development, currently working as a Full Stack Developer
+              Intern at <span class="highlight">Krytil Pvt Ltd</span> in
+              Bengaluru.
+            </p>
+            <p>
+              I specialize in building scalable, production-ready applications
+              using modern technologies like Node.js, React, and Docker. My
+              expertise lies in designing robust backend architectures,
+              implementing secure authentication systems, and deploying
+              containerized applications to the cloud.
+            </p>
+            <p>
+              With a strong foundation in Data Structures and Algorithms (300+
+              problems solved), I bring both theoretical knowledge and practical
+              experience to every project I work on.
+            </p>
+            <div class="about-stats">
+              <div class="stat-item">
+                <h3>8.6</h3>
+                <p>CGPA</p>
+              </div>
+              <div class="stat-item">
+                <h3>300+</h3>
+                <p>DSA Problems</p>
+              </div>
+              <div class="stat-item">
+                <h3>5+</h3>
+                <p>Production Features</p>
+              </div>
+            </div>
+          </div>
+          <div class="about-education">
+            <div class="glass-card">
+              <h3>Education</h3>
+              <div class="education-item">
+                <h4>B.E - Information Science and Engineering</h4>
+                <p class="institution">
+                  Cambridge Institute of Technology, India
+                </p>
+                <p class="duration">2022 - 2026</p>
+                <p class="grade">CGPA: 8.6 / 10</p>
+              </div>
+              <div class="coursework">
+                <h4>Key Coursework</h4>
+                <div class="course-tags">
+                  <span>OOP</span>
+                  <span>DBMS</span>
+                  <span>Operating Systems</span>
+                  <span>Data Structures & Algorithms</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+      <div class="container">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content glass-card">
+              <div class="timeline-header">
+                <div>
+                  <h3>Full Stack Developer Intern</h3>
+                  <h4>Krytil Pvt Ltd</h4>
+                </div>
+                <div class="timeline-meta">
+                  <span class="location">Bengaluru, India</span>
+                  <span class="duration">2025 - Present</span>
+                </div>
+              </div>
+              <ul class="timeline-achievements">
+                <li>
+                  <span class="achievement-icon">🚀</span>
+                  Engineered 5+ production features across frontend and backend
+                  using React and Node.js, integrating scalable RESTful APIs
+                </li>
+                <li>
+                  <span class="achievement-icon">🔐</span>
+                  Implemented JWT based authentication and optimized MongoDB
+                  queries with indexing to improve API performance
+                </li>
+                <li>
+                  <span class="achievement-icon">🐛</span>
+                  Debugged production issues and enhanced backend logic with
+                  structured validation and error handling
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+      <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+          <!-- AlgoNote -->
+          <div class="project-card glass-card">
+            <div class="project-image">
+              <img alt="AlgoNote DSA Tracker" id="algonote-img" />
+            </div>
+            <div class="project-content">
+              <h3>AlgoNote</h3>
+              <p class="project-description">
+                A comprehensive DSA tracking platform built with Next.js App
+                Router and NextAuth, featuring Monaco Editor for in-browser
+                coding and optimized MongoDB schemas for structured problem
+                tracking.
+              </p>
+              <div class="project-tech">
+                <span>Next.js</span>
+                <span>NextAuth</span>
+                <span>MongoDB</span>
+                <span>Docker</span>
+                <span>Azure</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/Darshankhnvr/AlgoNote"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-link"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                    />
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job Portal -->
+          <div class="project-card glass-card">
+            <div class="project-image">
+              <img alt="Job Portal Application" id="jobportal-img" />
+            </div>
+            <div class="project-content">
+              <h3>Job Portal</h3>
+              <p class="project-description">
+                A full-featured MERN stack job portal with role-based
+                authentication, recruiter dashboards, and job management
+                workflows. Includes CI/CD pipeline and comprehensive Jest unit
+                tests.
+              </p>
+              <div class="project-tech">
+                <span>React</span>
+                <span>Node.js</span>
+                <span>Express</span>
+                <span>MongoDB</span>
+                <span>Docker</span>
+                <span>Azure</span>
+                <span>Jest</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/Darshankhnvr/Job-Portal"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-link"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                    />
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Distributed Task Queue -->
+          <div class="project-card glass-card">
+            <div class="project-image">
+              <img alt="Distributed Task Queue System" id="taskqueue-img" />
+            </div>
+            <div class="project-content">
+              <h3>Distributed Task Queue Worker System</h3>
+              <p class="project-description">
+                A robust distributed task queue system using Node.js and BullMQ
+                for asynchronous background job processing, with multi-service
+                Docker architecture and Redis as message broker.
+              </p>
+              <div class="project-tech">
+                <span>Node.js</span>
+                <span>BullMQ</span>
+                <span>Redis</span>
+                <span>Docker</span>
+                <span>Azure</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/Darshankhnvr/Distributed-Task-Queue-Worker-System"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-link"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                    />
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+      <div class="container">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-category glass-card">
+            <h3>Languages</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <span>JavaScript</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="90"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span>TypeScript</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="85"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-category glass-card">
+            <h3>Frontend</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <span>React</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="88"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span>Next.js</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="85"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span>Redux</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="80"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span>HTML/CSS</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="92"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-category glass-card">
+            <h3>Backend</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <span>Node.js</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="90"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span>Express</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="88"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span>REST APIs</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="90"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-category glass-card">
+            <h3>Databases</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <span>MongoDB</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="87"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span>PostgreSQL</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="75"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span>Redis</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="80"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-category glass-card">
+            <h3>DevOps & Tools</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <span>Docker</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="85"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span>Git</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="90"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span>GitHub Actions</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="82"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span>Azure</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="80"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-category glass-card">
+            <h3>Testing & Security</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <span>Jest</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="83"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span>JWT</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="88"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span>Security Best Practices</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-progress="85"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements" id="achievements">
+      <div class="container">
+        <h2 class="section-title">Achievements</h2>
+        <div class="achievements-grid">
+          <div class="achievement-card glass-card">
+            <div class="achievement-icon-large">🏆</div>
+            <h3>300+ DSA Problems Solved</h3>
+            <p>
+              Demonstrated strong fundamentals in Data Structures and Algorithms
+              across multiple coding platforms
+            </p>
+          </div>
+          <div class="achievement-card glass-card">
+            <div class="achievement-icon-large">🌟</div>
+            <h3>Open Source Contributor</h3>
+            <p>
+              Actively contributing to open source projects and collaborating on
+              real-world codebases
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-content">
+          <p class="contact-intro">
+            I'm always open to discussing new projects, creative ideas, or
+            opportunities to be part of your vision.
+          </p>
+          <div class="contact-methods">
+            <a
+              href="mailto:darshankgoudahnvr@gmail.com"
+              class="contact-card glass-card"
+            >
+              <div class="contact-icon">📧</div>
+              <h3>Email</h3>
+              <p>darshankgoudahnvr@gmail.com</p>
+            </a>
+            <a href="tel:+918147257456" class="contact-card glass-card">
+              <div class="contact-icon">📱</div>
+              <h3>Phone</h3>
+              <p>+91 8147257456</p>
+            </a>
+          </div>
+          <div class="social-links">
+            <a
+              href="https://github.com/Darshankhnvr"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              aria-label="GitHub Profile"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/darshankhnvr"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              aria-label="LinkedIn Profile"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2026 Darshan Kesha Gouda. Built with passion and code.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
