@@ -2,10 +2,11 @@
 class ParticleCanvas {
     constructor() {
         this.canvas = document.getElementById('particle-canvas');
+        if (!this.canvas) return;
         this.ctx = this.canvas.getContext('2d');
         this.particles = [];
-        this.particleCount = 100;
-        this.mouse = { x: null, y: null, radius: 150 };
+        this.particleCount = 60;
+        this.mouse = { x: null, y: null, radius: 120 };
 
         this.init();
     }
@@ -20,6 +21,10 @@ class ParticleCanvas {
             this.mouse.x = e.x;
             this.mouse.y = e.y;
         });
+        window.addEventListener('mouseleave', () => {
+            this.mouse.x = null;
+            this.mouse.y = null;
+        });
     }
 
     resize() {
@@ -33,17 +38,17 @@ class ParticleCanvas {
             this.particles.push({
                 x: Math.random() * this.canvas.width,
                 y: Math.random() * this.canvas.height,
-                size: Math.random() * 2 + 1,
-                speedX: Math.random() * 0.5 - 0.25,
-                speedY: Math.random() * 0.5 - 0.25,
-                opacity: Math.random() * 0.5 + 0.2
+                size: Math.random() * 1.4 + 0.6,
+                speedX: Math.random() * 0.3 - 0.15,
+                speedY: Math.random() * 0.3 - 0.15,
+                opacity: Math.random() * 0.35 + 0.1
             });
         }
     }
 
     drawParticles() {
         this.particles.forEach(particle => {
-            this.ctx.fillStyle = `rgba(0, 245, 255, ${particle.opacity})`;
+            this.ctx.fillStyle = `rgba(255, 255, 255, ${particle.opacity})`;
             this.ctx.beginPath();
             this.ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
             this.ctx.fill();
@@ -57,9 +62,9 @@ class ParticleCanvas {
                 const dy = this.particles[i].y - this.particles[j].y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
 
-                if (distance < 100) {
-                    this.ctx.strokeStyle = `rgba(168, 85, 247, ${0.2 * (1 - distance / 100)})`;
-                    this.ctx.lineWidth = 1;
+                if (distance < 90) {
+                    this.ctx.strokeStyle = `rgba(255, 255, 255, ${0.06 * (1 - distance / 90)})`;
+                    this.ctx.lineWidth = 0.8;
                     this.ctx.beginPath();
                     this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
                     this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
@@ -74,7 +79,7 @@ class ParticleCanvas {
             particle.x += particle.speedX;
             particle.y += particle.speedY;
 
-            // Mouse interaction
+            // Subtle mouse interaction
             if (this.mouse.x && this.mouse.y) {
                 const dx = this.mouse.x - particle.x;
                 const dy = this.mouse.y - particle.y;
@@ -83,18 +88,16 @@ class ParticleCanvas {
                 if (distance < this.mouse.radius) {
                     const force = (this.mouse.radius - distance) / this.mouse.radius;
                     const angle = Math.atan2(dy, dx);
-                    particle.x -= Math.cos(angle) * force * 2;
-                    particle.y -= Math.sin(angle) * force * 2;
+                    particle.x -= Math.cos(angle) * force * 1.2;
+                    particle.y -= Math.sin(angle) * force * 1.2;
                 }
             }
 
-            // Boundary check
-            if (particle.x < 0 || particle.x > this.canvas.width) particle.speedX *= -1;
-            if (particle.y < 0 || particle.y > this.canvas.height) particle.speedY *= -1;
-
-            // Keep within bounds
-            particle.x = Math.max(0, Math.min(this.canvas.width, particle.x));
-            particle.y = Math.max(0, Math.min(this.canvas.height, particle.y));
+            // Boundary wrap around
+            if (particle.x < 0) particle.x = this.canvas.width;
+            if (particle.x > this.canvas.width) particle.x = 0;
+            if (particle.y < 0) particle.y = this.canvas.height;
+            if (particle.y > this.canvas.height) particle.y = 0;
         });
     }
 
@@ -172,9 +175,10 @@ function initSmoothScroll() {
 // ==================== NAVBAR SCROLL EFFECT ====================
 function initNavbarScroll() {
     const navbar = document.getElementById('navbar');
+    if (!navbar) return;
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
+        if (window.scrollY > 40) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
@@ -186,6 +190,7 @@ function initNavbarScroll() {
 function initMobileMenu() {
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
+    if (!navToggle || !navMenu) return;
 
     navToggle.addEventListener('click', () => {
         navToggle.classList.toggle('active');
@@ -254,45 +259,106 @@ function createProjectPlaceholders() {
     const projectImages = [
         {
             id: 'algonote-img',
-            name: 'ALGONOTE',
-            colors: { start: '#667eea', end: '#764ba2' }
+            title: 'ALGONOTE',
+            tag: 'DSA Tracking Platform',
+            tech: 'NEXT.JS // MONACO // MONGO'
         },
         {
             id: 'jobportal-img',
-            name: 'JOB PORTAL',
-            colors: { start: '#f093fb', end: '#f5576c' }
+            title: 'JOB PORTAL',
+            tag: 'Recruitment & Job Board',
+            tech: 'REACT // NODE // DOCKER'
         },
         {
             id: 'taskqueue-img',
-            name: 'TASK QUEUE',
-            colors: { start: '#4facfe', end: '#00f2fe' }
+            title: 'TASK QUEUE WORKER',
+            tag: 'Distributed Async System',
+            tech: 'BULLMQ // REDIS // AZURE'
         }
     ];
 
-    projectImages.forEach(({ id, name, colors }) => {
+    projectImages.forEach(({ id, title, tag, tech }) => {
         const img = document.getElementById(id);
         if (img) {
-            // Create a canvas placeholder
             const canvas = document.createElement('canvas');
-            canvas.width = 600;
-            canvas.height = 400;
+            canvas.width = 640;
+            canvas.height = 360;
             const ctx = canvas.getContext('2d');
 
-            // Create gradient with project-specific colors
-            const grd = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-            grd.addColorStop(0, colors.start);
-            grd.addColorStop(1, colors.end);
-
-            ctx.fillStyle = grd;
+            // Dark Minimalist Background
+            ctx.fillStyle = '#0a0a0e';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            // Add text
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
-            ctx.font = 'bold 48px Space Grotesk, sans-serif';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
+            // Subtle Grid
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
+            ctx.lineWidth = 1;
+            const gridSize = 32;
+            for (let x = 0; x < canvas.width; x += gridSize) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, canvas.height);
+                ctx.stroke();
+            }
+            for (let y = 0; y < canvas.height; y += gridSize) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(canvas.width, y);
+                ctx.stroke();
+            }
 
-            ctx.fillText(name, canvas.width / 2, canvas.height / 2);
+            // Top Bar
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.02)';
+            ctx.fillRect(0, 0, canvas.width, 38);
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
+            ctx.beginPath();
+            ctx.moveTo(0, 38);
+            ctx.lineTo(canvas.width, 38);
+            ctx.stroke();
+
+            // Terminal Dots
+            const dotY = 19;
+            const dots = [22, 34, 46];
+            dots.forEach(x => {
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
+                ctx.beginPath();
+                ctx.arc(x, dotY, 3.5, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            // Top Tech Path
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.35)';
+            ctx.font = '11px JetBrains Mono, monospace';
+            ctx.textAlign = 'right';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(tech, canvas.width - 24, dotY);
+
+            // Center Panel Card
+            const cardW = 380;
+            const cardH = 160;
+            const cardX = (canvas.width - cardW) / 2;
+            const cardY = (canvas.height - cardH) / 2 + 10;
+
+            ctx.fillStyle = '#0e0e14';
+            ctx.fillRect(cardX, cardY, cardW, cardH);
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.09)';
+            ctx.strokeRect(cardX, cardY, cardW, cardH);
+
+            // Tag
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+            ctx.font = '11px JetBrains Mono, monospace';
+            ctx.textAlign = 'center';
+            ctx.fillText(tag.toUpperCase(), canvas.width / 2, cardY + 45);
+
+            // Main Title
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 26px Space Grotesk, sans-serif';
+            ctx.letterSpacing = '-0.02em';
+            ctx.fillText(title, canvas.width / 2, cardY + 85);
+
+            // Bottom Sub-indicator
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.25)';
+            ctx.font = '12px JetBrains Mono, monospace';
+            ctx.fillText('>_ ready / production', canvas.width / 2, cardY + 120);
 
             img.src = canvas.toDataURL();
         }
