@@ -3,665 +3,599 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="description"
-    content="Darshan Kesha Gouda - Full Stack Developer specializing in Node.js, React, Docker, and Azure. Building scalable web applications and distributed systems." />
-  <title>Darshan Kesha Gouda | Full Stack Developer</title>
+    content="Darshan Kesha Gouda — 3D Cyberpunk Hologram Universe & Full Stack Systems Portfolio. React, TypeScript, Distributed Systems, Node.js, Cloud." />
+  <meta name="keywords" content="Darshan Kesha Gouda, Full Stack Developer, React, TypeScript, Node.js, Distributed Systems, Three.js, Portfolio" />
+  <meta name="author" content="Darshan Kesha Gouda" />
+  <meta name="theme-color" content="#05070e" />
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="DARSHAN // FULL STACK 3D CYBERNETIC CORE" />
+  <meta property="og:description" content="Explore the interactive 3D WebGL universe of Darshan Kesha Gouda — Full Stack Developer & Distributed Systems Engineer." />
+  <meta property="og:type" content="website" />
+
+  <title>DARSHAN // 3D CYBERNETIC CORE</title>
+
+  <!-- High-Tech Cyber Cyan SVG Favicon -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2305070e' stroke='%2300f0ff' stroke-width='4'/%3E%3Cpolygon points='50,18 82,78 18,78' stroke='%2300f0ff' stroke-width='6' fill='none'/%3E%3Ccircle cx='50' cy='58' r='10' fill='%2300f0ff'/%3E%3C/svg%3E" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Three.js (Reliable CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 
 <body>
-  <!-- Subtle Ambient Canvas -->
-  <canvas id="particle-canvas"></canvas>
 
-  <!-- Navigation -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="#home" class="nav-logo">
-        <span class="logo-bracket">[</span>DKG<span class="logo-bracket">]</span>
-      </a>
-      <ul class="nav-menu" id="nav-menu">
-        <li><a href="#home" class="nav-link">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#experience" class="nav-link">Experience</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+  <!-- ==================== SYSTEM PRELOADER / BOOTLOADER ==================== -->
+  <div id="cyber-preloader" class="cyber-preloader">
+    <div class="preloader-terminal">
+      <div class="preloader-badge">
+        <span class="pulse-dot"></span>
+        <span>KERNEL // INITIALIZING</span>
+      </div>
+      <div class="preloader-log" id="preloader-log">
+        <div class="log-row">&gt; HARDWARE ACCELERATION ............ [ENABLED]</div>
+        <div class="log-row">&gt; THREE.JS WEBGL CONTEXT ............ [ONLINE]</div>
+        <div class="log-row">&gt; 5 CELESTIAL DATA NODES ............ [MOUNTED]</div>
+        <div class="log-row">&gt; FULL STACK ENGINE READY .......... 100%</div>
+      </div>
+      <div class="preloader-progress-track">
+        <div class="preloader-progress-bar" id="preloader-bar"></div>
+      </div>
     </div>
-  </nav>
+  </div>
 
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <div class="hero-text">
-        <div class="hero-status">
-          <span class="status-indicator">
-            <span class="status-ping"></span>
-            <span class="status-dot"></span>
-          </span>
-          <span>Available for opportunities</span>
+  <!-- Fullscreen 3D WebGL Canvas -->
+  <canvas id="webgl-canvas"></canvas>
+
+  <!-- Cybernetic CRT Scanlines & Vignette Overlay -->
+  <div class="crt-overlay" aria-hidden="true"></div>
+  <div class="vignette-overlay" aria-hidden="true"></div>
+
+  <!-- ==================== HUD HEADER (TOP TELEMETRY) ==================== -->
+  <header class="hud-header">
+    <div class="hud-top-bar">
+      <div class="hud-brand-block">
+        <div class="hud-sys-tag">
+          <span class="hud-beacon"></span>
+          <span class="hud-title-mono">DARSHAN KESHA GOUDA</span>
+          <span class="hud-status-badge">ONLINE</span>
         </div>
-        <h1 class="hero-name">Darshan Kesha Gouda</h1>
-        <div class="hero-title">
-          <span class="typing-text"></span>
-          <span class="cursor">_</span>
+        <div class="hud-sub-role">
+          Full Stack Developer &middot; React &amp; Node.js &middot; Distributed Systems &middot; Cloud Architecture
         </div>
-        <p class="hero-description">
-          Full Stack Developer specializing in building scalable web
-          applications and distributed systems with Node.js, React, Docker, and Azure.
+      </div>
+
+      <div class="hud-target-readout">
+        <span class="readout-label">TARGET:</span>
+        <span class="readout-val" id="hud-target-name">ORBIT_VIEW // GALAXY</span>
+      </div>
+
+      <div class="hud-right-actions">
+        <!-- Resume / CV Download Action Button -->
+        <button class="hud-resume-btn" id="hud-resume-trigger" title="View & Download Resume / CV">
+          <span class="resume-icon">📄</span>
+          <span class="resume-label">RESUME / CV</span>
+          <kbd class="resume-badge">PDF</kbd>
+        </button>
+
+        <div class="hud-coordinates">
+          <span class="coord-item">X: <strong id="hud-coord-x">0.00</strong></span>
+          <span class="coord-item">Y: <strong id="hud-coord-y">0.00</strong></span>
+          <span class="coord-item">Z: <strong id="hud-coord-z">48.00</strong></span>
+          <span class="time-item" id="hud-time">--:--:-- IST</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== SCROLL-DRIVEN SEQUENTIAL REVEAL SECTIONS ==================== -->
+  <main class="scrolly-container" id="scrolly-container">
+
+    <!-- SECTION 0: HERO & CYBER-CORE REACTOR -->
+    <section class="scroll-section hero-section active-in-view" id="sec-hero" data-node="galaxy">
+      <div class="holo-card hero-card">
+        <div class="holo-corner-bracket top-left"></div>
+        <div class="holo-corner-bracket top-right"></div>
+        <div class="holo-corner-bracket bottom-left"></div>
+        <div class="holo-corner-bracket bottom-right"></div>
+
+        <div class="card-badge-row">
+          <span class="holo-tag-badge cyan">CORE // OVERVIEW</span>
+          <span class="holo-tag-badge emerald">KERNEL: ONLINE</span>
+        </div>
+
+        <h1 class="hero-main-title">DARSHAN KESHA GOUDA</h1>
+        <p class="hero-lead-text">
+          Full Stack Developer &amp; Distributed Systems Builder. Crafting high-performance React &amp; TypeScript interfaces, data-dense analytics surfaces, and resilient Node.js microservices.
         </p>
-        <div class="hero-cta">
-          <a href="#projects" class="btn btn-primary">
-            <span>View Projects</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14"></path>
-              <path d="m12 5 7 7-7 7"></path>
-            </svg>
-          </a>
-          <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+
+        <div class="hero-actions-row">
+          <button class="holo-btn primary-action" onclick="document.getElementById('sec-about').scrollIntoView({ behavior: 'smooth' });">
+            <span>EXPLORE UNIVERSE &darr;</span>
+          </button>
+          <button class="holo-btn secondary-action" onclick="openResumeModal();">
+            <span>RESUME / CV 📄</span>
+          </button>
+        </div>
+
+        <div class="scroll-telemetry-hint">
+          <span class="hint-pulse-dot"></span>
+          <span class="hint-text">SCROLL DOWN TO REVEAL ENTITIES SEQUENTIALLY</span>
+          <span class="hint-arrow">&darr;</span>
         </div>
       </div>
-    </div>
-    <div class="scroll-indicator">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
+    </section>
 
-  <!-- About Section -->
-  <section class="about" id="about">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge">// 01 &middot; ABOUT</span>
-        <h2 class="section-title">About Me</h2>
-      </div>
-      <div class="about-content">
-        <div class="about-text">
-          <p class="about-intro">
-            I'm a Full Stack Developer focused on robust backend engineering,
-            scalable architectures, and distributed systems, currently interning at
-            <span class="highlight">Krytil Pvt Ltd</span> in Bengaluru.
+    <!-- SECTION 1: IDENTITY & ABOUT -->
+    <section class="scroll-section" id="sec-about" data-node="about">
+      <div class="holo-card align-left">
+        <div class="holo-corner-bracket top-left"></div>
+        <div class="holo-corner-bracket top-right"></div>
+        <div class="holo-corner-bracket bottom-left"></div>
+        <div class="holo-corner-bracket bottom-right"></div>
+
+        <div class="card-header">
+          <span class="holo-node-id cyan">NODE_01 // IDENTITY</span>
+          <h2 class="holo-title">DARSHAN KESHA GOUDA</h2>
+        </div>
+
+        <div class="card-body">
+          <p class="holo-lead">
+            <strong>Full Stack Developer &amp; Systems Builder</strong> with production experience crafting accessible, high-performance React &amp; TypeScript interfaces and robust Node.js microservices.
           </p>
-          <p>
-            I specialize in designing production-ready web platforms with
-            Node.js, React, Express, and Docker. My core technical strengths include designing
-            clean RESTful API architectures, optimizing database queries, and deploying containerized services.
-          </p>
-          <p>
-            With a disciplined foundation in Data Structures and Algorithms (300+ problems solved),
-            I bridge analytical algorithmic problem solving with real-world engineering standards.
-          </p>
-          <div class="about-stats">
-            <div class="stat-item">
-              <h3>8.6</h3>
-              <p>CGPA</p>
+
+          <div class="holo-meta-grid">
+            <div class="holo-meta-box">
+              <span class="holo-meta-num">8.6</span>
+              <span class="holo-meta-lbl">CGPA / 10</span>
             </div>
-            <div class="stat-item">
-              <h3>300+</h3>
-              <p>DSA Problems</p>
+            <div class="holo-meta-box">
+              <span class="holo-meta-num">+25%</span>
+              <span class="holo-meta-lbl">PERF BOOST</span>
             </div>
-            <div class="stat-item">
-              <h3>5+</h3>
-              <p>Production Features</p>
+            <div class="holo-meta-box">
+              <span class="holo-meta-num">300+</span>
+              <span class="holo-meta-lbl">DSA SOLVED</span>
             </div>
           </div>
-        </div>
-        <div class="about-education">
-          <div class="glass-card">
-            <div class="card-tag">EDUCATION</div>
-            <div class="education-item">
-              <h4>B.E - Information Science and Engineering</h4>
-              <p class="institution">
-                Cambridge Institute of Technology, India
-              </p>
-              <div class="edu-meta">
-                <span class="duration">2022 &mdash; 2026</span>
-                <span class="grade">CGPA: 8.6 / 10</span>
-              </div>
+
+          <p class="section-desc-para">
+            Comfortable across the entire software development lifecycle: component design systems, data-dense dashboards, complex state management, asynchronous task queues, and cloud deployments. Passionate about engineering clean, scalable architectures.
+          </p>
+
+          <div class="holo-project-card nested-card">
+            <div class="holo-proj-header">
+              <h3>Cambridge Institute of Technology, Bengaluru</h3>
+              <span class="holo-proj-tag">2022 &mdash; 2026</span>
             </div>
-            <div class="coursework">
-              <h4>Key Coursework</h4>
-              <div class="course-tags">
-                <span>OOP</span>
-                <span>DBMS</span>
-                <span>Operating Systems</span>
-                <span>Data Structures & Algorithms</span>
-              </div>
-            </div>
+            <p class="nested-subtext">Bachelor of Engineering &mdash; Information Science and Engineering &middot; CGPA: 8.6 / 10</p>
+          </div>
+
+          <div class="card-action-footer">
+            <button class="holo-btn primary-action" onclick="openResumeModal();">
+              <span>VIEW &amp; PRINT RESUME / CV 📄</span>
+            </button>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Experience Section -->
-  <section class="experience" id="experience">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge">// 02 &middot; EXPERIENCE</span>
-        <h2 class="section-title">Work Experience</h2>
+    <!-- SECTION 2: FEATURED PROJECTS -->
+    <section class="scroll-section" id="sec-projects" data-node="projects">
+      <div class="holo-card align-right">
+        <div class="holo-corner-bracket top-left"></div>
+        <div class="holo-corner-bracket top-right"></div>
+        <div class="holo-corner-bracket bottom-left"></div>
+        <div class="holo-corner-bracket bottom-right"></div>
+
+        <div class="card-header">
+          <span class="holo-node-id violet">NODE_02 // ARCHITECTURE</span>
+          <h2 class="holo-title">FEATURED SYSTEMS</h2>
+        </div>
+
+        <div class="card-body">
+          <!-- Project 1 -->
+          <div class="holo-project-card">
+            <div class="holo-proj-header">
+              <h3>AlgoNote (AI-Enabled DSA Tracker)</h3>
+              <span class="holo-proj-tag">Full Stack UI</span>
+            </div>
+            <p class="holo-proj-desc">
+              Vite + React Router + TypeScript frontend leveraging shadcn/ui and Radix UI primitives. Built forms with React Hook Form + Zod validation, managed client state with Zustand, and orchestrated server caching and a data-dense analytics dashboard (Recharts) with TanStack Query &amp; Table, Monaco code editor, and NextAuth. Containerized with Docker and deployed on Azure Container Apps.
+            </p>
+            <div class="holo-tags">
+              <span>React</span><span>TypeScript</span><span>Vite</span><span>shadcn/ui</span><span>Radix UI</span><span>TanStack Query</span><span>TanStack Table</span><span>Zustand</span><span>React Hook Form</span><span>Zod</span><span>Monaco Editor</span><span>Docker</span><span>Azure</span>
+            </div>
+            <a href="https://github.com/Darshankhnvr/AlgoNote" target="_blank" rel="noopener noreferrer" class="holo-btn primary-action">
+              <span>EXPLORE REPOSITORY ↗</span>
+            </a>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="holo-project-card">
+            <div class="holo-proj-header">
+              <h3>Distributed Task Queue &amp; Worker System</h3>
+              <span class="holo-proj-tag">Distributed Systems</span>
+            </div>
+            <p class="holo-proj-desc">
+              High-performance task status dashboard built with React, TypeScript, Vite, shadcn/ui, Radix UI, and TanStack Virtual/Table for virtualized large-scale tables. Backed by an asynchronous microservices architecture: Express.js REST API + Node.js worker service communicating through BullMQ &amp; Redis queues, MongoDB Atlas, Docker Compose, Azure Container Apps, and Jest/Supertest test suites.
+            </p>
+            <div class="holo-tags">
+              <span>React</span><span>TypeScript</span><span>TanStack Virtual</span><span>TanStack Table</span><span>Zustand</span><span>Node.js</span><span>Express.js</span><span>BullMQ</span><span>Redis</span><span>Docker Compose</span><span>Azure</span><span>MongoDB</span><span>Jest</span>
+            </div>
+            <a href="https://github.com/Darshankhnvr/Distributed-Task-Queue-Worker-System" target="_blank" rel="noopener noreferrer" class="holo-btn primary-action">
+              <span>EXPLORE REPOSITORY ↗</span>
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content glass-card">
-            <div class="timeline-header">
-              <div>
-                <h3>Full Stack Developer Intern</h3>
-                <h4 class="company-name">Krytil Pvt Ltd</h4>
+    </section>
+
+    <!-- SECTION 3: SKILL MATRIX -->
+    <section class="scroll-section" id="sec-skills" data-node="skills">
+      <div class="holo-card align-left">
+        <div class="holo-corner-bracket top-left"></div>
+        <div class="holo-corner-bracket top-right"></div>
+        <div class="holo-corner-bracket bottom-left"></div>
+        <div class="holo-corner-bracket bottom-right"></div>
+
+        <div class="card-header">
+          <span class="holo-node-id emerald">NODE_03 // KERNEL MATRIX</span>
+          <h2 class="holo-title">TECHNICAL CAPABILITIES</h2>
+        </div>
+
+        <div class="card-body">
+          <p class="holo-lead">
+            Categorized capabilities across the modern web engineering and cloud stack:
+          </p>
+
+          <div class="skills-section-grid">
+            <!-- Category 1 -->
+            <div class="holo-project-card">
+              <div class="holo-proj-header">
+                <h3>01 // CORE FRONTEND &amp; UI DESIGN</h3>
+                <span class="holo-proj-tag" style="color:var(--neon-cyan);border-color:rgba(0,240,255,0.3);background:rgba(0,240,255,0.08);">Component-Driven</span>
               </div>
-              <div class="timeline-meta">
-                <span class="location">Bengaluru, India</span>
-                <span class="duration-badge">2025 &mdash; 2026</span>
+              <p class="skills-card-desc">Component APIs, design systems, accessible UI primitives, responsive layouts, dashboards, and auth flows:</p>
+              <div class="holo-tags">
+                <span>React</span><span>TypeScript</span><span>JavaScript (ESNext)</span><span>Vite</span><span>React Router</span><span>TailwindCSS</span><span>shadcn/ui</span><span>Radix UI</span><span>HTML5</span><span>CSS3</span><span>Design Systems</span>
               </div>
             </div>
-            <ul class="timeline-achievements">
+
+            <!-- Category 2 -->
+            <div class="holo-project-card">
+              <div class="holo-proj-header">
+                <h3>02 // STATE, DATA FETCHING &amp; FORMS</h3>
+                <span class="holo-proj-tag" style="color:var(--neon-violet);border-color:rgba(129,140,248,0.3);background:rgba(129,140,248,0.08);">Data-Dense</span>
+              </div>
+              <p class="skills-card-desc">Server state caching, mutations, optimistic updates, client stores, virtualization, and schema validation:</p>
+              <div class="holo-tags">
+                <span>TanStack Query</span><span>TanStack Table</span><span>TanStack Virtual</span><span>Zustand</span><span>Redux</span><span>React Hook Form</span><span>Zod</span><span>Recharts</span><span>Optimistic UI</span>
+              </div>
+            </div>
+
+            <!-- Category 3 -->
+            <div class="holo-project-card">
+              <div class="holo-proj-header">
+                <h3>03 // BACKEND &amp; DISTRIBUTED DATA</h3>
+                <span class="holo-proj-tag" style="color:var(--neon-green);border-color:rgba(0,245,160,0.3);background:rgba(0,245,160,0.08);">API Integration</span>
+              </div>
+              <p class="skills-card-desc">REST API architectures, background queues, indexing, and persistent database storage:</p>
+              <div class="holo-tags">
+                <span>Node.js</span><span>Express.js</span><span>REST APIs</span><span>BullMQ</span><span>Redis 7</span><span>MongoDB</span><span>MySQL</span><span>JWT Authentication</span><span>Microservices</span>
+              </div>
+            </div>
+
+            <!-- Category 4 -->
+            <div class="holo-project-card">
+              <div class="holo-proj-header">
+                <h3>04 // TESTING, CLOUD &amp; DEVOPS</h3>
+                <span class="holo-proj-tag" style="color:var(--neon-amber);border-color:rgba(245,158,11,0.3);background:rgba(245,158,11,0.08);">Production Quality</span>
+              </div>
+              <p class="skills-card-desc">Containerization, continuous integration, cloud container apps, and rigorous test coverage:</p>
+              <div class="holo-tags">
+                <span>Docker</span><span>Docker Compose</span><span>Microsoft Azure</span><span>Azure Container Apps</span><span>GitHub Actions</span><span>Jest</span><span>Supertest</span><span>Playwright</span><span>Git</span><span>Agile / SCRUM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: WORK EXPERIENCE -->
+    <section class="scroll-section" id="sec-experience" data-node="experience">
+      <div class="holo-card align-right">
+        <div class="holo-corner-bracket top-left"></div>
+        <div class="holo-corner-bracket top-right"></div>
+        <div class="holo-corner-bracket bottom-left"></div>
+        <div class="holo-corner-bracket bottom-right"></div>
+
+        <div class="card-header">
+          <span class="holo-node-id amber">NODE_04 // PRODUCTION LOGS</span>
+          <h2 class="holo-title">KRYTIL PVT LTD</h2>
+        </div>
+
+        <div class="card-body">
+          <div class="holo-project-card">
+            <div class="holo-proj-header">
+              <h3>Full Stack Developer Intern</h3>
+              <span class="holo-proj-tag">2025</span>
+            </div>
+            <p class="exp-meta-subtitle">
+              BENGALURU, INDIA &middot; AGILE / SCRUM PRODUCTION ENVIRONMENT
+            </p>
+            <ul class="exp-bullet-list">
               <li>
-                <svg class="achievement-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span>Engineered 5+ production features across frontend and backend using React and Node.js, integrating
-                  scalable RESTful APIs.</span>
+                <strong>Production React/TypeScript Features:</strong> Engineered client-facing and admin interfaces on a <strong>Vite + React Router</strong> stack utilizing <strong>shadcn/ui</strong> and <strong>Radix UI</strong> primitives within a shared component library.
               </li>
               <li>
-                <svg class="achievement-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span>Implemented JWT based authentication and optimized MongoDB queries with indexing to enhance API
-                  throughput.</span>
+                <strong>Server &amp; Client State Architecture:</strong> Employed <strong>TanStack Query</strong> for asynchronous server state, caching, and handling loading/error states; orchestrated client state using <strong>Zustand</strong> across complex workflows.
               </li>
               <li>
-                <svg class="achievement-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span>Resolved critical production edge cases and strengthened backend logic with structured schema
-                  validation and error handling.</span>
+                <strong>Forms &amp; Performance Optimization:</strong> Built robust forms with <strong>React Hook Form</strong> and strict <strong>Zod</strong> runtime schema validation; boosted overall web application performance by <strong>25%</strong> via query and rendering optimizations.
+              </li>
+              <li>
+                <strong>Cross-Functional Collaboration:</strong> Partnered closely with designers, developers, and team leads on component architecture, interaction details, and edge cases; actively contributed to code reviews and daily sprint discussions.
               </li>
             </ul>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Projects Section -->
-  <section class="projects" id="projects">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge">// 03 &middot; PROJECTS</span>
-        <h2 class="section-title">Featured Projects</h2>
-      </div>
-      <div class="projects-grid">
-        <!-- AlgoNote -->
-        <div class="project-card glass-card">
-          <div class="project-image">
-            <img alt="AlgoNote DSA Tracker" id="algonote-img" />
-          </div>
-          <div class="project-content">
-            <div class="project-header-row">
-              <h3>AlgoNote</h3>
-              <span class="project-category">Full Stack</span>
-            </div>
-            <p class="project-description">
-              A comprehensive DSA tracking platform built with Next.js App
-              Router and NextAuth, featuring Monaco Editor for in-browser
-              coding and optimized MongoDB schemas for structured problem
-              tracking.
-            </p>
-            <div class="project-tech">
-              <span>Next.js</span>
-              <span>NextAuth</span>
-              <span>MongoDB</span>
-              <span>Docker</span>
-              <span>Azure</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/Darshankhnvr/AlgoNote" target="_blank" rel="noopener noreferrer"
-                class="project-link">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                </svg>
-                <span>Source Code</span>
-                <svg class="external-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M7 17 17 7"></path>
-                  <path d="M7 7h10v10"></path>
-                </svg>
-              </a>
-            </div>
-          </div>
+    <!-- SECTION 5: CONTACT & TRANSMISSION -->
+    <section class="scroll-section" id="sec-contact" data-node="contact">
+      <div class="holo-card align-center">
+        <div class="holo-corner-bracket top-left"></div>
+        <div class="holo-corner-bracket top-right"></div>
+        <div class="holo-corner-bracket bottom-left"></div>
+        <div class="holo-corner-bracket bottom-right"></div>
+
+        <div class="card-header text-center">
+          <span class="holo-node-id rose">NODE_05 // TRANSMISSION</span>
+          <h2 class="holo-title">CONNECT &amp; COLLABORATE</h2>
         </div>
 
-        <!-- Job Portal -->
-        <div class="project-card glass-card">
-          <div class="project-image">
-            <img alt="Job Portal Application" id="jobportal-img" />
-          </div>
-          <div class="project-content">
-            <div class="project-header-row">
-              <h3>Job Portal</h3>
-              <span class="project-category">MERN Stack</span>
-            </div>
-            <p class="project-description">
-              A full-featured MERN stack job portal with role-based
-              authentication, recruiter dashboards, and job management
-              workflows. Includes CI/CD pipeline and comprehensive Jest unit
-              tests.
-            </p>
-            <div class="project-tech">
-              <span>React</span>
-              <span>Node.js</span>
-              <span>Express</span>
-              <span>MongoDB</span>
-              <span>Docker</span>
-              <span>Azure</span>
-              <span>Jest</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/Darshankhnvr/Job-Portal" target="_blank" rel="noopener noreferrer"
-                class="project-link">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                </svg>
-                <span>Source Code</span>
-                <svg class="external-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M7 17 17 7"></path>
-                  <path d="M7 7h10v10"></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Distributed Task Queue -->
-        <div class="project-card glass-card">
-          <div class="project-image">
-            <img alt="Distributed Task Queue System" id="taskqueue-img" />
-          </div>
-          <div class="project-content">
-            <div class="project-header-row">
-              <h3>Distributed Task Queue Worker</h3>
-              <span class="project-category">Backend System</span>
-            </div>
-            <p class="project-description">
-              A robust distributed task queue architecture using Node.js and BullMQ
-              for asynchronous background job processing, featuring multi-service
-              Docker orchestration and Redis as high-speed broker.
-            </p>
-            <div class="project-tech">
-              <span>Node.js</span>
-              <span>BullMQ</span>
-              <span>Redis</span>
-              <span>Docker</span>
-              <span>Azure</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/Darshankhnvr/Distributed-Task-Queue-Worker-System" target="_blank"
-                rel="noopener noreferrer" class="project-link">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                </svg>
-                <span>Source Code</span>
-                <svg class="external-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M7 17 17 7"></path>
-                  <path d="M7 7h10v10"></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section class="skills" id="skills">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge">// 04 &middot; SKILLS</span>
-        <h2 class="section-title">Technical Expertise</h2>
-      </div>
-      <div class="skills-grid">
-        <div class="skill-category glass-card">
-          <h3>Languages</h3>
-          <div class="skill-items">
-            <div class="skill-item">
-              <div class="skill-meta">
-                <span>JavaScript</span>
-                <span class="skill-pct">90%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-progress="90"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-meta">
-                <span>TypeScript</span>
-                <span class="skill-pct">85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-progress="85"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="skill-category glass-card">
-          <h3>Frontend</h3>
-          <div class="skill-items">
-            <div class="skill-item">
-              <div class="skill-meta">
-                <span>React</span>
-                <span class="skill-pct">88%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-progress="88"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-meta">
-                <span>Next.js</span>
-                <span class="skill-pct">85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-progress="85"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-meta">
-                <span>Redux</span>
-                <span class="skill-pct">80%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-progress="80"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-meta">
-                <span>HTML5 / CSS3</span>
-                <span class="skill-pct">92%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-progress="92"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="skill-category glass-card">
-          <h3>Backend</h3>
-          <div class="skill-items">
-            <div class="skill-item">
-              <div class="skill-meta">
-                <span>Node.js</span>
-                <span class="skill-pct">90%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-progress="90"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-meta">
-                <span>Express.js</span>
-                <span class="skill-pct">88%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-progress="88"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-meta">
-                <span>REST APIs</span>
-                <span class="skill-pct">90%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-progress="90"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="skill-category glass-card">
-          <h3>Databases</h3>
-          <div class="skill-items">
-            <div class="skill-item">
-              <div class="skill-meta">
-                <span>MongoDB</span>
-                <span class="skill-pct">87%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-progress="87"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-meta">
-                <span>PostgreSQL</span>
-                <span class="skill-pct">75%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-progress="75"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-meta">
-                <span>Redis</span>
-                <span class="skill-pct">80%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-progress="80"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="skill-category glass-card">
-          <h3>DevOps & Cloud</h3>
-          <div class="skill-items">
-            <div class="skill-item">
-              <div class="skill-meta">
-                <span>Docker</span>
-                <span class="skill-pct">85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-progress="85"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-meta">
-                <span>Git & GitHub</span>
-                <span class="skill-pct">90%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-progress="90"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-meta">
-                <span>GitHub Actions</span>
-                <span class="skill-pct">82%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-progress="82"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-meta">
-                <span>Microsoft Azure</span>
-                <span class="skill-pct">80%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-progress="80"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="skill-category glass-card">
-          <h3>Testing & Security</h3>
-          <div class="skill-items">
-            <div class="skill-item">
-              <div class="skill-meta">
-                <span>Jest</span>
-                <span class="skill-pct">83%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-progress="83"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-meta">
-                <span>JWT Auth</span>
-                <span class="skill-pct">88%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-progress="88"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-meta">
-                <span>API Security</span>
-                <span class="skill-pct">85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-progress="85"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Achievements Section -->
-  <section class="achievements" id="achievements">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge">// 05 &middot; MILESTONES</span>
-        <h2 class="section-title">Achievements</h2>
-      </div>
-      <div class="achievements-grid">
-        <div class="achievement-card glass-card">
-          <div class="achievement-icon-wrapper">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
-              <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
-              <path d="M4 22h16"></path>
-              <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
-              <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
-              <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
-            </svg>
-          </div>
-          <h3>300+ DSA Problems Solved</h3>
-          <p>
-            Demonstrated solid algorithmic fundamentals, complexity optimization, and problem-solving discipline across
-            LeetCode and competitive platforms.
+        <div class="card-body">
+          <p class="holo-lead text-center">
+            Open to <strong>Full Stack Developer</strong>, <strong>React/TypeScript</strong>, and <strong>Distributed Systems</strong> engineering roles. Based in <strong>Bengaluru, India</strong> (Open to Remote).
           </p>
-        </div>
-        <div class="achievement-card glass-card">
-          <div class="achievement-icon-wrapper">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-              stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="2" y1="12" x2="22" y2="12"></line>
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-              </path>
-            </svg>
+
+          <div class="holo-contact-list">
+            <div class="holo-contact-row" onclick="copyToClipboard('darshankgoudahnvr@gmail.com', 'EMAIL COPIED TO CLIPBOARD');">
+              <span class="contact-protocol">PROTOCOL // EMAIL</span>
+              <span class="contact-val">darshankgoudahnvr@gmail.com [COPY]</span>
+            </div>
+
+            <a href="mailto:darshankgoudahnvr@gmail.com" class="holo-contact-row">
+              <span class="contact-protocol">DIRECT // TRANSMIT</span>
+              <span class="contact-val">SEND DIRECT EMAIL ↗</span>
+            </a>
+
+            <div class="holo-contact-row" onclick="copyToClipboard('+918147257456', 'PHONE COPIED TO CLIPBOARD');">
+              <span class="contact-protocol">PROTOCOL // VOICE</span>
+              <span class="contact-val">+91 8147257456 [COPY]</span>
+            </div>
+
+            <a href="https://github.com/Darshankhnvr" target="_blank" rel="noopener noreferrer" class="holo-contact-row">
+              <span class="contact-protocol">SOURCE // GITHUB</span>
+              <span class="contact-val">github.com/Darshankhnvr ↗</span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/darshankhnvr" target="_blank" rel="noopener noreferrer" class="holo-contact-row">
+              <span class="contact-protocol">NETWORK // LINKEDIN</span>
+              <span class="contact-val">linkedin.com/in/darshankhnvr ↗</span>
+            </a>
           </div>
-          <h3>Open Source Contributor</h3>
-          <p>
-            Actively contributing to open source repositories, maintaining developer utilities, and collaborating on
-            real-world production codebases.
-          </p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge">// 06 &middot; CONTACT</span>
-        <h2 class="section-title">Get In Touch</h2>
-      </div>
-      <div class="contact-content">
-        <p class="contact-intro">
-          I am currently open to full-time engineering roles, high-impact internships,
-          and collaborative projects. Feel free to reach out directly.
-        </p>
-        <div class="contact-methods">
-          <a href="mailto:darshankgoudahnvr@gmail.com" class="contact-card glass-card">
-            <div class="contact-icon-wrapper">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                stroke-linecap="round" stroke-linejoin="round">
-                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L1 7"></path>
-              </svg>
-            </div>
-            <h3>Email</h3>
-            <p>darshankgoudahnvr@gmail.com</p>
-          </a>
-          <a href="tel:+918147257456" class="contact-card glass-card">
-            <div class="contact-icon-wrapper">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path
-                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                </path>
-              </svg>
-            </div>
-            <h3>Phone</h3>
-            <p>+91 8147257456</p>
-          </a>
-        </div>
-        <div class="social-links">
-          <a href="https://github.com/Darshankhnvr" target="_blank" rel="noopener noreferrer" class="social-link"
-            aria-label="GitHub Profile">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-            </svg>
-          </a>
-          <a href="https://www.linkedin.com/in/darshankhnvr" target="_blank" rel="noopener noreferrer"
-            class="social-link" aria-label="LinkedIn Profile">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-container">
-      <p>&copy; 2026 Darshan Kesha Gouda. Built with modern minimalism.</p>
-      <p class="footer-sub">Clean architecture &middot; scalable systems</p>
+  <!-- ==================== BOTTOM HUD: DOCK NAVIGATION ==================== -->
+  <footer class="hud-footer">
+    <div class="node-selector-dock" id="node-dock">
+      <button class="dock-node-btn active" data-node="galaxy" title="Galaxy Overview [0]">
+        <span class="node-num">[0]</span>
+        <span class="node-lbl">GALAXY</span>
+      </button>
+
+      <div class="dock-separator"></div>
+
+      <button class="dock-node-btn" data-node="about" title="Identity & Bio [1]">
+        <span class="node-num">[1]</span>
+        <span class="node-lbl">IDENTITY</span>
+      </button>
+
+      <button class="dock-node-btn" data-node="projects" title="Featured Systems [2]">
+        <span class="node-num">[2]</span>
+        <span class="node-lbl">PROJECTS</span>
+      </button>
+
+      <button class="dock-node-btn" data-node="skills" title="Skill Matrix [3]">
+        <span class="node-num">[3]</span>
+        <span class="node-lbl">MATRIX</span>
+      </button>
+
+      <button class="dock-node-btn" data-node="experience" title="Work Logs [4]">
+        <span class="node-num">[4]</span>
+        <span class="node-lbl">LOGS</span>
+      </button>
+
+      <button class="dock-node-btn" data-node="contact" title="Transmission [5]">
+        <span class="node-num">[5]</span>
+        <span class="node-lbl">CONTACT</span>
+      </button>
+    </div>
+
+    <div class="hud-audio-toggle">
+      <button class="audio-btn" id="audio-toggle-btn" title="Toggle Sci-Fi SFX">
+        <span class="audio-icon" id="audio-icon">🔊</span>
+        <span class="audio-text">SFX: <strong id="audio-state">ON</strong></span>
+      </button>
     </div>
   </footer>
+
+  <!-- ==================== ATS RESUME MODAL ==================== -->
+  <div class="resume-modal-overlay hidden" id="resume-modal" role="dialog" aria-modal="true" aria-label="Resume Document">
+    <div class="resume-modal-window">
+      <div class="holo-corner-bracket top-left"></div>
+      <div class="holo-corner-bracket top-right"></div>
+      <div class="holo-corner-bracket bottom-left"></div>
+      <div class="holo-corner-bracket bottom-right"></div>
+
+      <div class="resume-modal-header">
+        <div class="resume-title-wrap">
+          <span class="resume-sys-tag">DOC // RESUME_ATS_V2026</span>
+          <h3>DARSHAN KESHA GOUDA &mdash; CURRICULUM VITAE</h3>
+        </div>
+        <div class="resume-action-bar">
+          <button class="resume-btn-action print-btn" id="print-resume-btn" title="Print or Save PDF">
+            <span>PRINT / SAVE PDF</span>
+            <kbd>CTRL+P</kbd>
+          </button>
+          <button class="resume-btn-action close-btn" id="close-resume-btn" title="Close Resume Modal">
+            <span>CLOSE</span>
+            <kbd>ESC</kbd>
+          </button>
+        </div>
+      </div>
+
+      <div class="resume-document printable-content" id="resume-document">
+        <!-- Resume Header -->
+        <header class="resume-doc-header">
+          <h1>DARSHAN KESHA GOUDA</h1>
+          <div class="resume-doc-role">
+            Full Stack Developer | React &amp; TypeScript &bull; Distributed Systems &bull; High-Performance UI
+          </div>
+          <div class="resume-doc-contact">
+            <span>darshankgoudahnvr@gmail.com</span>
+            <span>&bull;</span>
+            <span>+91 8147257456</span>
+            <span>&bull;</span>
+            <span>Bengaluru, India (Open to Remote)</span>
+            <span>&bull;</span>
+            <a href="https://github.com/Darshankhnvr" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <span>&bull;</span>
+            <a href="https://www.linkedin.com/in/darshankhnvr" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </header>
+
+        <!-- Education -->
+        <section class="resume-section">
+          <h2>EDUCATION</h2>
+          <div class="resume-entry">
+            <div class="entry-header">
+              <strong>Cambridge Institute of Technology</strong>
+              <span class="entry-date">2022 &mdash; 2026</span>
+            </div>
+            <div class="entry-sub">
+              <span>Bachelor of Engineering &mdash; Information Science and Engineering</span>
+              <span class="entry-gpa">CGPA: 8.6 / 10</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Experience -->
+        <section class="resume-section">
+          <h2>EXPERIENCE</h2>
+          <div class="resume-entry">
+            <div class="entry-header">
+              <strong>Krytil Pvt Ltd</strong>
+              <span class="entry-date">2025</span>
+            </div>
+            <div class="entry-sub">
+              <em>Full Stack Developer Intern</em>
+              <span>Bengaluru, India</span>
+            </div>
+            <ul class="entry-bullets">
+              <li>
+                Engineered production client-facing and admin interfaces on a <strong>Vite + React Router</strong> stack utilizing <strong>shadcn/ui</strong> and <strong>Radix UI</strong> primitives within a shared component library.
+              </li>
+              <li>
+                Employed <strong>TanStack Query</strong> for asynchronous server state, caching, loading states, and mutations; orchestrated complex client state using <strong>Zustand</strong> across workflows.
+              </li>
+              <li>
+                Built robust forms with <strong>React Hook Form</strong> and strict <strong>Zod</strong> runtime schema validation; boosted application performance by <strong>25%</strong> through optimized query invalidation and virtualized rendering.
+              </li>
+              <li>
+                Collaborated closely with designers and senior engineers in an Agile/SCRUM environment; actively led code reviews and feature refinement discussions.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="resume-section">
+          <h2>FEATURED PROJECTS</h2>
+
+          <div class="resume-entry">
+            <div class="entry-header">
+              <strong>AlgoNote &mdash; AI-Enabled DSA Tracker</strong>
+              <span class="entry-links">
+                <a href="https://github.com/Darshankhnvr/AlgoNote" target="_blank" rel="noopener noreferrer">github.com/Darshankhnvr/AlgoNote ↗</a>
+              </span>
+            </div>
+            <p class="entry-desc">
+              High-performance DSA tracking application engineered with Vite, React Router, TypeScript, shadcn/ui, Radix UI, TanStack Query &amp; Table, Zustand, React Hook Form, and Zod. Integrated Monaco code editor, NextAuth authentication, and Docker containerization deployed on Azure Container Apps.
+            </p>
+          </div>
+
+          <div class="resume-entry">
+            <div class="entry-header">
+              <strong>Distributed Task Queue &amp; Worker System</strong>
+              <span class="entry-links">
+                <a href="https://github.com/Darshankhnvr/Distributed-Task-Queue-Worker-System" target="_blank" rel="noopener noreferrer">github.com/Darshankhnvr/Distributed-Task-Queue-Worker-System ↗</a>
+              </span>
+            </div>
+            <p class="entry-desc">
+              Microservices-backed architecture with Express.js REST API and Node.js worker services communicating through BullMQ &amp; Redis 7 queues. Built real-time virtualized monitoring dashboard using React, TypeScript, TanStack Virtual/Table, Zustand, MongoDB Atlas, Docker Compose, Azure Container Apps, and comprehensive Jest/Supertest test suites.
+            </p>
+          </div>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="resume-section">
+          <h2>TECHNICAL CAPABILITIES</h2>
+          <div class="skills-grid">
+            <div class="skill-category">
+              <strong>Frontend &amp; UI Systems:</strong>
+              <span>React, TypeScript, JavaScript (ESNext), Vite, React Router, TailwindCSS, shadcn/ui, Radix UI, HTML5, CSS3, Design Systems.</span>
+            </div>
+            <div class="skill-category">
+              <strong>State &amp; Data Fetching:</strong>
+              <span>TanStack Query, TanStack Table, TanStack Virtual, Zustand, Redux, React Hook Form, Zod, Recharts, Optimistic UI.</span>
+            </div>
+            <div class="skill-category">
+              <strong>Backend &amp; Distributed Systems:</strong>
+              <span>Node.js, Express.js, REST APIs, BullMQ, Redis 7, MongoDB, MySQL, JWT Authentication, Microservices.</span>
+            </div>
+            <div class="skill-category">
+              <strong>DevOps &amp; Quality Engineering:</strong>
+              <span>Docker, Docker Compose, Microsoft Azure, Azure Container Apps, GitHub Actions (CI/CD), Jest, Supertest, Playwright, Git, Agile/SCRUM.</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="cyber-toast hidden" id="toast">
+    <span class="toast-bracket">[</span>
+    <span class="toast-text" id="toast-text">TRANSMISSION_COPIED</span>
+    <span class="toast-bracket">]</span>
+  </div>
 
   <script src="script.js"></script>
 </body>
